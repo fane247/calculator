@@ -30,46 +30,62 @@ function divide(number1, number2){
 
 }
 
-
+var oneMoreCalculation = true; 
  
 
-var number1 = prompt("Please enter first opperand");
-var number2 = prompt("Please enter second opperand");
-var operation = prompt("Please enter one of the following" 
-	+ "operations: add, subtract, multiply or divide");
+while(oneMoreCalculation){
+
+	var number1 = prompt("Please enter first opperand");
+	var number2 = prompt("Please enter second opperand");
+	var operation = prompt("Please enter one of the following" 
+		+ "operations: add, subtract, multiply or divide");
 
 
-var result = 0;
+	var result = 0;
 
-if (operation ==="") {
-	operation = "add";
+	if (operation ==="") {
+		operation = "add";
+	}
+
+	switch(operation){
+
+		case "add":
+			result = add(number1,number2);
+			break;
+
+		case "subtract":
+			result = subtract(number1,number2);
+			break;
+
+		case "multiply":
+			result = multiply(number1,number2);
+			break;
+
+		case "divide":
+			result = divide(number1,number2);
+			break;
+
+		default:
+			result = "not a valid operation"
+			break;
+
+	}
+
+	alert(result);
+	var calculationResponse = prompt("would you like to make another calculation? y/n")
+
+	if (calculationResponse === "n") {
+
+		oneMoreCalculation = false;
+	}else if(calculationResponse === "y") {
+
+		oneMoreCalculation = true;
+	}else{
+		oneMoreCalculation = false;
+	}
+
+
 }
-
-switch(operation){
-
-	case "add":
-		result = add(number1,number2);
-		break;
-
-	case "subtract":
-		result = subtract(number1,number2);
-		break;
-
-	case "multiply":
-		result = multiply(number1,number2);
-		break;
-
-	case "divide":
-		result = divide(number1,number2);
-		break;
-
-	default:
-		result = "not a valid operation"
-		break;
-
-}
-
-alert(result);
 
 
 
